@@ -1,3 +1,4 @@
+// Data Structure to work with Complex Numbers
 class Complex {
   // Primary Constructors
   Complex({
@@ -14,6 +15,9 @@ class Complex {
   num _real;
   num _imaginary;
 
+  // Public Static Fields
+  static final int i_squared = -1;
+
   // Getters
   num get real => _real;
   num get imaginary => _imaginary;
@@ -21,6 +25,31 @@ class Complex {
   // Setters
   void set real(num real) => _real = real;
   void set imaginary(num imaginary) => _imaginary = imaginary;
+
+  // Addition Operator
+  Complex operator +(Complex other) {
+    return Complex(
+      real: (this._real + other.real),
+      imaginary: (this._imaginary + other.imaginary),
+    );
+  }
+
+  // multiply Method
+  Complex multiply(Complex other) {
+    num realPart = (this._real * other.real) +
+        (this._imaginary * other.imaginary * i_squared);
+    num imaginaryPart =
+        (this._real * other.imaginary) + (this._imaginary * other.real);
+    return Complex(real: realPart, imaginary: imaginaryPart);
+  }
+
+  // Static/ Class Method subtract
+  static Complex subtract(Complex complex1, Complex complex2) {
+    return Complex(
+      real: complex1.real - complex2.real,
+      imaginary: complex1.imaginary - complex2.imaginary,
+    );
+  }
 
   // Equality Operator Overloading
   @override
@@ -35,14 +64,6 @@ class Complex {
         this._imaginary == other._imaginary;
   }
 
-  // Addition Operator
-  Complex operator +(Complex other) {
-    return Complex(
-      real: (this._real + other.real),
-      imaginary: (this._imaginary + other.imaginary),
-    );
-  }
-
   // toString Method Overloading
   @override
   String toString() {
@@ -50,10 +71,4 @@ class Complex {
         ? "$_real + ${_imaginary}i"
         : "$_real - ${_imaginary.abs()}i";
   }
-}
-
-void main() {
-  Complex complex_num1 = Complex(real: 3, imaginary: 9);
-  Complex complex_num2 = Complex(real: 6, imaginary: -4);
-  print(complex_num1 + complex_num2);
 }
