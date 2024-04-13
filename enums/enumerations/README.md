@@ -12,6 +12,6 @@ Code can be found in `bin` directory. `Example0` is from the dart documentation.
 - Example5 - Fall Through in Switch
 - Example6 - Enums with Mixins
 - Example7 - extensions on Enums 
-- Example8 - 
+- Example8 - Enums with Comparables
 
 ```dart
