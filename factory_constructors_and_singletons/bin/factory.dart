@@ -1,13 +1,27 @@
-void main(List<String> arguments) {}
+void main(List<String> arguments) {
+  Animal dog = Animal("dog");
+  print('dog is Dog -> ${dog is Dog}');
+
+  Animal cat = Animal("cat");
+  print('cat is Cat -> ${cat is Cat}');
+
+  Animal fish = Animal("fish");
+  print('fish is Animal -> ${fish is Animal}');
+}
 
 class Animal {
   String type;
 
   // Factory constructor
   factory Animal(String type) {
-    if (type == "cat") Cat(type);
-    if (type == "dog") Dog(type);
-    return Animal._type(type);
+    if (type == "cat") {
+      return Cat(type);
+    }
+    if (type == "dog") {
+      return Dog(type);
+    } else {
+      return Animal._type(type);
+    }
   }
 
   // Private named constructor
