@@ -1,9 +1,5 @@
 void main(List<String> args) {
-  TeslaCar modelS = TeslaCar.modelS;
-  TeslaCar model3 = TeslaCar.model3;
-
-  print(
-      "${modelS.name} has ${modelS.compareTo(model3)} Kg more weight than ${model3.name}");
+  print([...TeslaCar.values]..sort());
 }
 
 enum TeslaCar implements Comparable<TeslaCar> {
@@ -17,7 +13,5 @@ enum TeslaCar implements Comparable<TeslaCar> {
   const TeslaCar({required this.weightInKg});
 
   @override
-  int compareTo(TeslaCar other) {
-    return weightInKg - other.weightInKg;
-  }
+  int compareTo(TeslaCar other) => weightInKg.compareTo(other.weightInKg);
 }
