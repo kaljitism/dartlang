@@ -1,2 +1,1 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+This repository contains basic implementation of exceptions in Dart and using Custom Exceptions. 
