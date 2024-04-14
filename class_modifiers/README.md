@@ -39,7 +39,17 @@ Without any modifier, a class/mixin is `concrete` and can be instantiated and ex
 | mixin                     | No         | No      | Yes        | Yes    | No          |
 | base mixin                | No         | No      | No         | Yes    | No          |
 
+### Invalid Combinations
 
+| Combination                           | Reasoning                                                                                                                                     |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| base, interface, and final            | All control the same two capabilities(extend and implement), so are mutually exclusive                                                        |
+| sealed and abstract                   | Neither can be constructed, so are redundant together.                                                                                        |
+| sealed with base, interface, or final | sealed types already cannot be mixed in, extended or implemented from another library, so are redundant to combine with the listed modifiers. |
+| mixin and abstract                    | ANeither can be constructed, so are redundant together.                                                                                       |
+| mixin and interface, final, or sealed | A mixin or mixin class declaration is intended to be mixed in, which the listed modifiers prevent.                                            |
+| enum and any modifiers                | enum declarations can't be extended, implemented, mixed in, and can always be instantiated, so no modifiers apply to enum declarations.       |
+| extension type and any modifiers      | extension type declarations can't be extended or mixed in, and can only be implemented by other extension type declarations.                  |
 
 #### abstract
 - A class that doesn't require a a full, concrete implementation of its entire interface. 
