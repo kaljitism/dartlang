@@ -1,4 +1,4 @@
-// Following docs and the code borrows heavily from official docs: https://dart.dev/language/class-modifiers#combining-modifiers
+// Following docs and the code borrows heavily from official docs: https://dart.dev/language/class-modifiers#combining-modifiers and the API Reference: https://dart.dev/language/modifier-reference
 
 A command-line application created with intent to understand Class Modifiers with an entrypoint in `bin/`.
 
@@ -18,6 +18,30 @@ Without any modifier, a class/mixin is `concrete` and can be instantiated and ex
 - Extend a class to create new subtype. 
 - Implement a class or mixin's interface. 
 - Mix in a mixin or mixin  class. 
+
+### Valid Combinations
+
+-------------------------------------------------------------------------
+| Declaration | Construct? | Extend? | Implement? | Mixin? | Exhaustive?
+-------------------------------------------------------------------------
+| class | Yes | Yes | Yes | No | No |
+| base class | Yes | Yes | No | No | No |
+| interface class | Yes | No | Yes | No | No |
+| final class | Yes | No | No | No | No |
+| sealed class | No | No | No | No | Yes |
+| abstract class | No | Yes | Yes | No | No |
+| abstract base class | No | Yes | No | No | No |
+| abstract interface class | No | No | Yes | No | No |
+| abstract final class | No | No | No | No | No |
+| mixin class | Yes | Yes | Yes | Yes | No | 
+| base mixin class | Yes | Yes | No | Yes | No |
+| abstract mixin class | No | Yes | Yes | Yes | No |
+| abstract base mixin class | No | Yes | No | Yes | No |
+| mixin | No | No | Yes | Yes | No |
+| base mixin | No | No | No | Yes | No |
+-------------------------------------------------------------------------
+
+
 
 #### abstract
 - A class that doesn't require a a full, concrete implementation of its entire interface. 
@@ -69,47 +93,17 @@ Look into `bin/final/` for code.
 
 Look into `bin/sealed.dart` for code.
 
+### Combining Modifiers
 
+You can combine modifiers for layered restrictions. A class declaration can be, in order -
+  1. (Optional) `abstract`, describing whether the class can contain abstract member and prevents instantiation. 
+  2. (Optional) One of `base`, `interface`, `final`, or `sealed`, describing whether the class can be extended or implemented outside of its own library.
+  3. (Optional) `mixin`, describing whether the class can be mixed in.
+  4. `class` keyword itself 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+You can't combine some modifiers because they are contradictory, or redundant, or otherwise mutually exclusive: 
+  - `abstract` with `sealed`. A `sealed class` is implicitly `abstract`.
+  - `interface`. `final` or `sealed` with `mixin`. These access modifiers prevent mixing in. 
 
 
 ```dart
