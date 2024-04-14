@@ -21,23 +21,23 @@ Without any modifier, a class/mixin is `concrete` and can be instantiated and ex
 
 ### Valid Combinations
 
-| Declaration | Construct? | Extend? | Implement? | Mixin? | Exhaustive? |
-|-------------|------------|---------|------------|--------|-------------|
-| class       | Yes        | Yes     | Yes        | No     | No          |
-| base class  | Yes        | Yes     | No         | No     | No          |
-| interface class | Yes        | No      | Yes        | No     | No          |
-| final class | Yes        | No      | No         | No     | No          |
-| sealed class | No         | No      | No         | No     | Yes         |
-| abstract class | No         | Yes     | Yes        | No     | No          |
-| abstract base class | No         | Yes     | No         | No     | No          |
-| abstract interface class | No         | No      | Yes        | No     | No          |
-| abstract final class | No         | No      | No         | No     | No          |
-| mixin class | Yes        | Yes     | Yes        | Yes    | No          | 
-| base mixin class | Yes        | Yes     | No         | Yes    | No          |
-| abstract mixin class | No         | Yes     | Yes        | Yes    | No          |
+| Declaration               | Construct? | Extend? | Implement? | Mixin? | Exhaustive? |
+|---------------------------|------------|---------|------------|--------|-------------|
+| class                     | Yes        | Yes     | Yes        | No     | No          |
+| base class                | Yes        | Yes     | No         | No     | No          |
+| interface class           | Yes        | No      | Yes        | No     | No          |
+| final class               | Yes        | No      | No         | No     | No          |
+| sealed class              | No         | No      | No         | No     | Yes         |
+| abstract class            | No         | Yes     | Yes        | No     | No          |
+| abstract base class       | No         | Yes     | No         | No     | No          |
+| abstract interface class  | No         | No      | Yes        | No     | No          |
+| abstract final class      | No         | No      | No         | No     | No          |
+| mixin class               | Yes        | Yes     | Yes        | Yes    | No          | 
+| base mixin class          | Yes        | Yes     | No         | Yes    | No          |
+| abstract mixin class      | No         | Yes     | Yes        | Yes    | No          |
 | abstract base mixin class | No         | Yes     | No         | Yes    | No          |
-| mixin       | No         | No      | Yes        | Yes    | No          |
-| base mixin  | No         | No      | No         | Yes    | No          |
+| mixin                     | No         | No      | Yes        | Yes    | No          |
+| base mixin                | No         | No      | No         | Yes    | No          |
 
 
 
