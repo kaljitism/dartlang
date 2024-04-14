@@ -22,7 +22,7 @@ Without any modifier, a class/mixin is `concrete` and can be instantiated and ex
 ### Valid Combinations
 
 | Declaration               | Construct? | Extend? | Implement? | Mixin? | Exhaustive? |
-|---------------------------|------------|---------|------------|--------|-------------|
+|---------------------------|------------|---------|:-----------|--------|-------------|
 | class                     | Yes        | Yes     | Yes        | No     | No          |
 | base class                | Yes        | Yes     | No         | No     | No          |
 | interface class           | Yes        | No      | Yes        | No     | No          |
@@ -42,7 +42,7 @@ Without any modifier, a class/mixin is `concrete` and can be instantiated and ex
 ### Invalid Combinations
 
 | Combination                           | Reasoning                                                                                                                                     |
-|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+|---------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
 | base, interface, and final            | All control the same two capabilities(extend and implement), so are mutually exclusive                                                        |
 | sealed and abstract                   | Neither can be constructed, so are redundant together.                                                                                        |
 | sealed with base, interface, or final | sealed types already cannot be mixed in, extended or implemented from another library, so are redundant to combine with the listed modifiers. |
