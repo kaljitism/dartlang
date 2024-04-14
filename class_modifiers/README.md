@@ -22,8 +22,7 @@ Without any modifier, a class/mixin is `concrete` and can be instantiated and ex
 ### Valid Combinations
 
 -------------------------------------------------------------------------
-| Declaration | Construct? | Extend? | Implement? | Mixin? | Exhaustive?
--------------------------------------------------------------------------
+| Declaration | Construct? | Extend? | Implement? | Mixin? | Exhaustive? | 
 | class | Yes | Yes | Yes | No | No |
 | base class | Yes | Yes | No | No | No |
 | interface class | Yes | No | Yes | No | No |
