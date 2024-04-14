@@ -111,7 +111,4 @@ You can combine modifiers for layered restrictions. A class declaration can be, 
 
 You can't combine some modifiers because they are contradictory, or redundant, or otherwise mutually exclusive: 
   - `abstract` with `sealed`. A `sealed class` is implicitly `abstract`.
-  - `interface`. `final` or `sealed` with `mixin`. These access modifiers prevent mixing in. 
-
-
-```dart
+  - `interface`. `final` or `sealed` with `mixin`. These access modifiers prevent mixing in.
