@@ -33,51 +33,68 @@ Look into `bin/abstract.dart` for code.
 - A new implemented member in a base class does not break subtypes, since all subtypes inherit the new member, unless the subtype already declares a member with the same name and an incompatible signature.
 - You must mark any class which implements or extends a base class as `base`, `final`, or `sealed`. This prevents outside libraries from breaking  the base class guarantees.  
 
+Look into `bin/base.dart` for code. 
+
+#### interface
+
+- Libraries outside of the interface's own defining library can implement the interface, but not extend it. This guarantees - 
+  - When one of the class's instance methods calls another instance method on this, it will always invoke a known implementation of the method from the same library. 
+  - Other libraries can't override methods that the interface class's own methods might later call in unexpected ways. This reduces the fragile base class problem.
+
+- Most common use for the interface modifier is to define a pure interface. Combine the `interface` and `abstract` modifiers for an `abstract interface` class. 
+
+Look into `bin/interface/` for code.
+
+#### final 
+
+- To close the type hierarchy, use the final modifier. This prevents subtyping from a class outside of the current library. Disallowing both inheritance and implementation prevents subtyping entirely. This guarantees: 
+  - You can safely add incremental changes to the API. 
+  - You can call instance methods knowing that they haven't been overwritten in a third-party subclass. 
+
+- Final classes can be extended or implemented within the same library. The `final` modifier encompasses the effects of `base`, and therefore any subclasses must also be marked `base`, `final` or `sealed`. 
+
+Look into `bin/final/` for code. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```dart
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-hel
