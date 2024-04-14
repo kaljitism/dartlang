@@ -1,9 +1,6 @@
-// Dependencies
-import 'dart:developer';
-
 // Base Clas
 base class Vehicle {
-  void moveForward(int meters) => log('Moved $meters m');
+  void moveForward(int meters) => print('Moved $meters m');
 }
 
 // Can be constructed

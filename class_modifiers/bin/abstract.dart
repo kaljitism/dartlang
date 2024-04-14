@@ -1,6 +1,3 @@
-// Dependencies
-import 'dart:developer';
-
 // Abstract Class
 abstract class GraphicObject {
   void draw();
@@ -18,13 +15,13 @@ class Triangle extends GraphicObject {
 // Can be implemented
 class Quadrilateral implements GraphicObject {
   @override
-  void draw() => log('Drawing Quadrilateral');
+  void draw() => print('Drawing Quadrilateral');
 }
 
 // Can't be mixed
 class Pentagon with GraphicObject {
   @override
-  void draw() => log('Drawing Pentagon');
+  void draw() => print('Drawing Pentagon');
 }
 
 // If you want to instantiate abstract class, use a factory constructor.
