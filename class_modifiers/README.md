@@ -9,7 +9,7 @@ A command-line application created with intent to understand Class Modifiers wit
 - `sealed`
 - `mixin`
 
-Modifiers don't apply to other declarations such as `enum`, `typedef`, or `extension` and can only appear before `Class` or `mixin`. Only `base` can appear before `mixin` Class. 
+Modifiers don't apply to other declarations such as `enum`, `typedef`, or `extension` and can only appear before `class` or `mixin`. Only `base` can appear before `mixin` Class. 
 
 Without any modifier, a class/mixin is `concrete` and can be instantiated and extended. By default, you can: 
 - Construct new instances of the class. 
@@ -19,8 +19,65 @@ Without any modifier, a class/mixin is `concrete` and can be instantiated and ex
 
 #### abstract
 
-A class that doesn't require a a full, concrete implementation of its entire interface. Abstract classes can't be instantiated directly. They are designed to be subclassed. They can not be constructed/ instantiated. They often have abstract methods. 
+- A class that doesn't require a a full, concrete implementation of its entire interface. 
+- Abstract classes can't be instantiated directly. They need factory constructors to be constructed.
+- Abstract classes can be subclassed ie. you can `extend` or `implement` an abstract class.
+- They often have abstract methods
 
+Look into `bin/abstract.dart` for code. 
+
+#### base 
+
+- `base` modifier is used to enforce inheritance of a class/ mixin's implementation. Base Class disallows implementation outside of its own library.
+- Base class constructor is called whenever an instance of a subtype of the class is created. 
+- A new implemented member in a base class does not break subtypes, since all subtypes inherit the new member, unless the subtype already declares a member with the same name and an incompatible signature.
+- You must mark any class which implements or extends a base class as `base`, `final`, or `sealed`. This prevents outside libraries from breaking  the base class guarantees.  
 
 
 ```dart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hel
