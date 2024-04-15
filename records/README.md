@@ -10,35 +10,35 @@ class Location {}
 
 Define x and y coordinate -
 ```
-final int x;
-final int y;
+  final int x;
+  final int y;
 ```
 
 Create a constructor -
 ```
-Location(this.x, this.y);
+  Location(this.x, this.y);
 ```
 
 Override the toString() method for printing the value in your desired format -
 ```
-@override
-String toString() {
-return "[Latitude: $x, Longitude: $y]";
-}
+  @override
+  String toString() {
+    return "[Latitude: $x, Longitude: $y]";
+  }
 ```
 
 Create a getLocation to encapsulate the logic -
 ```
-Location getLocation() {
-return Location(1, 2);
-}
+  Location getLocation() {
+    return Location(1, 2);
+  }
 ```
 
 Write code to access and print -
 ```
 void main() {   
-final location = getLocation();
-print(location);
+  final location = getLocation();
+  print(location);
 }
 ```
 
