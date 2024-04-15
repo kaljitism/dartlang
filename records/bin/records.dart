@@ -1,5 +1,5 @@
 void main() {
-  // Destructuring
+  Destructuring
   final (lat, lon) = getLocation();
   print('Latitude: $lat, Longitude: $lon');
 }

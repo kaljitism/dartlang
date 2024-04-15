@@ -147,5 +147,114 @@ To streamline record field access even more, use Patterns.
 ```dart
 (num, Object) pair = (42, 'a');
 var first = pair.$1; // Static-Type 'num', Runtime-Type: 'int'
-var second = pair.$2; // Static-Type 'Object', Runtime-Type: 'String' 
+var second = pair.$2; // Static-Type 'Object', Runtime-Type:
 ```
+Consider two unrelated libraries that create records with the same set of fields. The type system understands that those records are of same type even though the libraries are not coupled together.
+
+### Record Equality 
+
+Two records are equal if - 
+- they have the same shape(set of fields),
+- their corresponding fields have same values. 
+The order of named fields doesn't affect equality, since, named field _order_ is not part of a record's shape
+
+For eg, 
+
+```dart
+// Positional parameters have same type and value. 
+  (int x, int y, int z) point = (1, 2, 3);
+  (int r, int g, int b) color = (1, 2, 3);
+  print(point == color); // prints true
+```
+
+```dart
+// Different Named parameters thus different types. 
+  ({int x, int y, int z}) point = (x: 1, y: 2, z: 3);
+  ({int r, int g, int b}) color = (r: 1, g: 2, b: 3);
+  print(point == color); // prints 'false'. Lint: Equals on unrelated types.
+```
+
+Records automatically define `hashCode` and `==` methods based on the structure of their fields. 
+
+### Multiple Returns
+
+Records allow functions to return multiple values bundled together. To retrieve record values from a return destructure the values into local variables using **pattern matching**
+
+For example, 
+
+Lets create a json data to work with - 
+```dart
+final json = <String, dynamic>{
+  'name': 'Dash',
+  'age': 10,
+  'color': 'blue',
+};
+```
+
+Create a function userInfo to take the json and return values. 
+```dart
+// Returns multiple values in a record:
+(String name, int age) userInfo(Map<String, dynamic> json) {
+  return (json['name'] as String, json['age'] as int);
+}
+```
+
+Destructure the return value using a record pattern with positional fields:
+```dart
+var (name, age) = userInfo(json);
+```
+Above code is equivalent to - 
+```dart
+  var info = userInfo(json);
+  var name = info.$1;
+  var age = info.$2;
+```
+but achieves the similar with some nice syntactic sugar. 
+
+You can also destructure a record using its named fields, using the colon `:` syntax - 
+
+```dart
+({String name, int age}) userInfo(Map<String, dynamic> json) {
+// ..
+// Destructure using a record pattern with named fields: 
+final (:name, :age) = userInfo(json);
+```
+
+We'll learn more about this approach in Pattern Matching. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_ 
