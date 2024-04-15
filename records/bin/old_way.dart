@@ -1,3 +1,5 @@
+// Code written while studying: https://www.youtube.com/watch?v=aWOyc3HG9XM
+
 void main() {
   final location = getLocation();
   print(location);

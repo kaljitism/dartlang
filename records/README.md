@@ -1,3 +1,5 @@
+> **_Note:_** This markdown file borrows heavily from [Robert Burnhage's video on Records](https://www.youtube.com/watch?v=aWOyc3HG9XM) and [Official Docs](https://dart.dev/language/records) 
+
 Lets say you want to return two values of Latitude and Longitude while returning a Location Object.
 
 What would you do??
@@ -220,41 +222,4 @@ You can also destructure a record using its named fields, using the colon `:` sy
 final (:name, :age) = userInfo(json);
 ```
 
-We'll learn more about this approach in Pattern Matching. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_ 
+We'll learn more about this approach in Pattern Matching.
