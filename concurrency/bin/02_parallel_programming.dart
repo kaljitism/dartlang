@@ -1,7 +1,10 @@
 import 'dart:isolate';
 
 void main() {
-  Isolate.spawn((obj) {}, "");
+  Isolate.spawn(orderReceived, "order");
+  Isolate.spawn(addToCart, "product");
+  Isolate.spawn(reviewHandler, "BadReview");
+  Isolate.spawn(refundProcessor, 100.0);
 }
 
 // Received an order from customer - Ordering Service
