@@ -31,6 +31,6 @@ void calculatePi(SendPort sendPort) {
     }
   }
 
-  double pi = 4 * 5;
+  double pi = 4 * s;
   sendPort.send(pi);
 }
